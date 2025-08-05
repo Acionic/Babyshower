@@ -1,0 +1,292 @@
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #4a3b31;
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.butterfly {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.butterfly::before,
+.butterfly::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 75px;
+  height: 50px;
+  background: radial-gradient(circle at bottom center, rgba(242, 202, 214, 0.8), rgba(189, 148, 193, 0.7));
+  border-radius: 60% 80% 60% 80% / 80% 80% 60% 60%;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.15));
+}
+
+.butterfly::before {
+  left: -55%;
+  transform: rotate(-20deg);
+  animation: wingFlapLeft 2s ease-in-out infinite;
+}
+
+.butterfly::after {
+  right: -55%;
+  transform: rotate(20deg);
+  animation: wingFlapRight 2s ease-in-out infinite;
+}
+
+.butterfly .body {
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 45px;
+  background: #7d4a50;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.b1 {
+  top: 70%;
+  left: -20%;
+}
+.b2 {
+  top: 80%;
+  left: 120%;
+}
+.b3 {
+  top: 90%;
+  left: -10%;
+}
+
+@keyframes flutter1 {
+  0% {
+    transform: translate(0, 0) scale(0.8) rotate(0deg);
+  }
+  25% {
+    transform: translate(50vw, -20vh) scale(1) rotate(15deg);
+  }
+  50% {
+    transform: translate(80vw, -40vh) scale(0.9) rotate(-10deg);
+  }
+  75% {
+    transform: translate(30vw, -60vh) scale(1.1) rotate(5deg);
+  }
+  100% {
+    transform: translate(0, -80vh) scale(0.8) rotate(0deg);
+  }
+}
+
+@keyframes flutter2 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  20% {
+    transform: translate(-30vw, -20vh) scale(1.1) rotate(-12deg);
+  }
+  40% {
+    transform: translate(-60vw, -40vh) scale(0.9) rotate(20deg);
+  }
+  60% {
+    transform: translate(-20vw, -60vh) scale(1) rotate(-5deg);
+  }
+  80% {
+    transform: translate(-50vw, -80vh) scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: translate(0, -100vh) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes flutter3 {
+  0% {
+    transform: translate(0, 0) scale(0.9) rotate(0deg);
+  }
+  33% {
+    transform: translate(40vw, -30vh) scale(1) rotate(10deg);
+  }
+  66% {
+    transform: translate(70vw, -70vh) scale(1.1) rotate(-15deg);
+  }
+  100% {
+    transform: translate(20vw, -100vh) scale(0.9) rotate(0deg);
+  }
+}
+
+/* Invitation card styling */
+.invite-card {
+  position: relative;
+  z-index: 2;
+  width: 95vw;
+  max-width: 700px;
+  min-width: 260px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 2rem;
+  padding: 2rem 1.5rem;
+  margin: 2.5rem auto;
+  text-align: center;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(4px);
+  animation: fadeUp 1.5s ease-out forwards;
+}
+
+@media (max-width: 600px) {
+  .invite-card {
+    padding: 1.2rem 0.5rem;
+    border-radius: 1.2rem;
+    font-size: 0.95rem;
+  }
+  .title {
+    font-size: 2.1rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .details {
+    font-size: 0.95rem;
+  }
+  .footer {
+    font-size: 0.8rem;
+  }
+  .butterfly {
+    width: 60px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 400px) {
+  .invite-card {
+    padding: 0.7rem 0.2rem;
+    border-radius: 0.7rem;
+    font-size: 0.85rem;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+  .subtitle {
+    font-size: 0.85rem;
+  }
+  .details {
+    font-size: 0.8rem;
+  }
+  .footer {
+    font-size: 0.7rem;
+  }
+  .butterfly {
+    width: 40px;
+    height: 32px;
+  }
+}
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  color: #a45c5a;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  animation: fadeIn 2s ease-out forwards;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #64483d;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 2.5s ease-out forwards;
+}
+.details {
+  font-size: 1rem;
+  color: #5a463d;
+  margin: 0.5rem 0;
+  line-height: 1.4;
+  animation: fadeIn 3s ease-out forwards;
+}
+.details .label {
+  font-weight: 600;
+}
+
+.footer {
+  font-style: italic;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #6e574e;
+  animation: fadeIn 3.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flap {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scaleX(1.05) scaleY(0.95) rotate(2deg);
+  }
+  50% {
+    transform: scaleX(0.95) scaleY(1.05) rotate(-2deg);
+  }
+  75% {
+    transform: scaleX(1.05) scaleY(0.95) rotate(2deg);
+  }
+}
+
+@keyframes wingFlapLeft {
+  0%, 100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes wingFlapRight {
+  0%, 100% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
